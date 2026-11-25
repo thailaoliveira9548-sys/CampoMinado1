@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html Lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Campo Minado</title>
+<style>
+  body { font-family: Arial, sans-serif; background: #222;
+    color: #fff; text-align: center; }
+canvas { background: #888; cursor: pointer; }
+#info { font-size: 22px; margin: 10px; }
+</style>
+</head>
+<body>
+<h1> Campo Minado</h1>
+<div id="info"></div>
+<canvas id="tela"></canvas>
+<p>Clique: abrir | Botão direito: bandeira | R: reiniciar</p>
+<script>
+const canvas = document.getElementById("tela");
+const ctx = canvas.getContext("2d");
+const info = document.getElementById("info");
+const LINHAS = 10;
+const COLUNAS = 10;
+const MINAS = 12;
+const TAM = 40;
+canvas.width = COLUNAS * TAM;
+canvas.height = LINHAS * TAM;
+let grade = [];
+let fimDeJogo = false;
+let venceu = false;
+let primeiraClique = true;
+const CORES = ["", "blue", "green", "red", "navy",
+"beown", "teal", "black", "gray"];
+function novoQuadrado() {
+  return {
+    mina: false,
+    aberta: false,
+    bandeira: false,
+    vizinhas: 0
+}}
+
